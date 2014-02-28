@@ -1,16 +1,45 @@
 #include"Main.h"
 
+
 int main()
 	{
+	int i=0;
+	int j=0;
 	int choix = 0;
 	int partie = 0;
 	int confirmation = 0;
-	char *Tab_Puissance[7][6] = {{"\0"}};
-	char Saisie = '\0';
-	char Base = '\0';
+	char Tab_Puissance[7][6] = {{0}};
+	int Saisie = 0;
+	int Base = 0;
 	printf("Bienvenue !");
 	system("pause");
 	system("cls");
+
+
+	j = 0;
+	partie = 1; 
+	do
+	{
+		for (i = 0; i < HAUTEUR; i++){
+ 			Tab_Puissance[i][j] = UNDER;
+		}
+		i = 0;
+		j++;
+	} while (j < LARGEUR);
+
+
+	i=0;
+	j=0;
+	
+		
+	for (i = 5; i >= 0; i--){
+		for (j = 6; j >= 0 ; j--)
+		{
+			printf("|%c", Tab_Puissance[i][j]);
+		}
+		printf("|\n");
+		j=0;
+	}
 
 		do
 	{
@@ -34,22 +63,21 @@ int main()
 		case 0 :
 				return 0;
 		case 1 :
-				if(partie == 1)
+
+				printf("Vous vous vraiment faire une nouvelle partie ?\n(0 = Non / 1 = Oui) : ");
+				scanf("%d", &confirmation);
+				if (confirmation == 1)
 				{
-					printf("Vous vous vraiment faire une nouvelle partie ?\n(0 = Non / 1 = Oui) : ");
-					scanf("%d", &confirmation);
-					if (confirmation == 1)
-					{
-						NouvellePartie(partie, &Tab_Puissance, Saisie, Base);
-						break;
-					}
-					else if (confirmation == 0)
-					{
-						system("pause");
-						system("cls");
-						break;
-					}
+					NouvellePartie(partie, Tab_Puissance, Saisie, Base);
+					break;
 				}
+				else if (confirmation == 0)
+				{
+					system("pause");
+					system("cls");
+					break;
+				}
+				
 				break;
 		case 2 : 
 				

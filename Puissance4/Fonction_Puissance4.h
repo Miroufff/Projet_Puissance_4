@@ -9,10 +9,12 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
+#include<stddef.h>
 
 int NouvellePartie(int partie, char **Tab_Puissance, int Saisie, int Base);
 int OccurenceChaine(char **Tab_Puissance);
 int Condition(char **Tab_Puissance, int Saisie, int Base);
 int VerifCase(char **Tab_Puissance, int Base, int Saisie);
+void AffichagePuissance4(char **Tab_Puissance);
 
 #endif
