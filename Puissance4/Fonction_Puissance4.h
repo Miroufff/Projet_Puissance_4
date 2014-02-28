@@ -11,10 +11,9 @@
 #include<string.h>
 #include<stddef.h>
 
-int NouvellePartie(int partie, char **Tab_Puissance, int Saisie, int Base);
-int OccurenceChaine(char **Tab_Puissance);
-int Condition(char **Tab_Puissance, int Saisie, int Base);
-int VerifCase(char **Tab_Puissance, int Base, int Saisie);
-void AffichagePuissance4(char **Tab_Puissance);
+int OccurenceChaine(char (*Tab_Puissance)[7]);
+int Condition(char (*Tab_Puissance)[7], int Saisie, int Base);
+int VerifCase(char (*Tab_Puissance)[7], int Base, int Saisie);
+void AffichagePuissance4(char (*Tab_Puissance)[7]);
 
 #endif

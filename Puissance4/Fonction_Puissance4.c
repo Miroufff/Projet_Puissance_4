@@ -1,56 +1,19 @@
 #include"Fonction_Puissance4.h"
 
-int NouvellePartie(int partie, char **Tab_Puissance, int Saisie, int Base)
+//int NouvellePartie(int partie, char **Tab_Puissance, int Saisie, int Base)
+//{
+//	
+//}
+
+void AffichagePuissance4(char (*Tab_Puissance)[7])
 {
-	int i = 0;
-	int j = 0;
-	
-
-	j = 0;
-	partie = 1; 
-	do
-	{
-		for (i = 0; i < HAUTEUR; i++){
-			Tab_Puissance[i][j] == UNDER;
-		}
-		i = 0;
-		j++;
-	} while (j < LARGEUR);
-
-
-	do
-	{
-		AffichagePuissance4(Tab_Puissance);
-		printf("|1|2|3|4|5|6|7|\n");
-		
-		printf("\nAu Joueur 1 de jouer : ");
-		scanf("%d", Saisie);
-		Saisie = Saisie - 1;
-		VerifCase(Tab_Puissance, Base, Saisie);
-		Tab_Puissance[Base][Saisie] = J1;
-		Condition(Tab_Puissance, Saisie, Base);
-
-		printf("\nAu Joueur 2 de jouer : ");
-		scanf("%d", Saisie);
-		Saisie = Saisie - 1;
-		VerifCase(Tab_Puissance, Base, Saisie);
-		Tab_Puissance[Base][Saisie] = J2;
-		Condition(Tab_Puissance, Saisie, Base);
-		system("pause");
-		system("cls");
-	} while (OccurenceChaine(Tab_Puissance) == 1 || Condition(Tab_Puissance, Saisie, Base) == 1);
-	return partie = 0;
-}
-
-void AffichagePuissance4(char **Tab_Puissance)
-{
-	int i=0;
-	int j=0;
+	int i=5;
+	int j=6;
 		
 	for (i = 5; i >= 0; i--){
 		for (j = 6; j >= 0 ; j--)
 		{
-			printf("|%s", &Tab_Puissance[i][j]);
+			printf("|%c", Tab_Puissance[i][j]);
 		}
 		printf("|\n");
 		j=6;
@@ -64,7 +27,7 @@ void AffichagePuissance4(char **Tab_Puissance)
 //printf("|%c|%c|%c|%c|%c|%c|%c|\n", Tab_Puissance[1][0], Tab_Puissance[1][1], Tab_Puissance[1][2], Tab_Puissance[1][3], Tab_Puissance[1][4], Tab_Puissance[1][5], Tab_Puissance[1][6]);
 //printf("|%c|%c|%c|%c|%c|%c|%c|\n", Tab_Puissance[0][0], Tab_Puissance[0][1], Tab_Puissance[0][2], Tab_Puissance[0][3], Tab_Puissance[0][4], Tab_Puissance[0][5], Tab_Puissance[0][6]);
 
-int OccurenceChaine(char **Tab_Puissance)
+int OccurenceChaine(char (*Tab_Puissance)[7])
 {
 	int i = 0;
 	int j = 0;
@@ -87,7 +50,7 @@ int OccurenceChaine(char **Tab_Puissance)
 	return 0;
 }
 
-int Condition(char **Tab_Puissance, int Saisie, int Base)
+int Condition(char (*Tab_Puissance)[7], int Saisie, int Base)
 {
 	int i = 0;
 	int j = 0;
@@ -214,19 +177,19 @@ int Condition(char **Tab_Puissance, int Saisie, int Base)
 	return 0;
 }
 
-int VerifCase(char **Tab_Puissance, int Base, int Saisie)
+int VerifCase(char (*Tab_Puissance)[7], int Base, int Saisie)
 {
 	Base = 0;
-	while (Tab_Puissance[Base][Saisie] == UNDER)
+	do
 	{
-		if (Tab_Puissance[Base][Saisie] != 'X' || Tab_Puissance[Base][Saisie] != 'O')
-		{
-			return 1;
-		}
-		else
+		if (Tab_Puissance[Base][Saisie] != UNDER)
 		{
 			Base = Base + 1;
 		}
-	}
+		else
+		{
+			return 1;
+		}
+	} while (Tab_Puissance[Base][Saisie] != UNDER);
 	return 0;
 }
